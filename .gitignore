@@ -1,0 +1,17 @@
+# Ignore Windows system stuff
+Desktop/
+Documents/
+Downloads/
+AppData/
+*.log
+*.tmp
+*.bak
+*.swp
+Thumbs.db
+ehthumbs.db
+*.DS_Store
+
+# Ignore node_modules / vendor / caches
+node_modules/
+vendor/
+.cache/
