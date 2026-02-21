@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class main {
-
+	
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to the app, Please select an action : /1.Login   /2.New User");
 		Scanner s = new Scanner(System.in);
-		
+		database dt = new database();
 		System.out.print("Write down the type :");
 		int action = s.nextInt();
 		
@@ -47,6 +48,7 @@ public class main {
 		String pass = sc.nextLine();
 		
 		System.out.println("Welcome");
+		
 		
 	}
 
