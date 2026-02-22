@@ -1,6 +1,6 @@
 package EndUsers;
 
-public class User {
+public abstract class User {
 
 	protected String name;
 	protected String email;
@@ -16,9 +16,6 @@ public class User {
 		this.pass = pass;
 	}
 	
-	public void User2() {
-		
-	}
 	
 	public String getName() {
 		return name;
@@ -29,6 +26,8 @@ public class User {
 	public String getPass() {
 		return pass;
 	}
+	
+	abstract public void menu();
 	
 }
 
