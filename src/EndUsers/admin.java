@@ -1,8 +1,20 @@
 package EndUsers;
 
 public class admin extends User{
+	private EndUsers.IOOperation[] operations;
+	
+	public admin(String name) {
+		super(name);
+		this.operations = new IOOperation[] {
+				new AddBook()   // Implemting from the AddBook 
+		};
+	}
+
 	public admin(String name, String email, String pass) {
 		super(name,email,pass);
+		this.operations = new IOOperation[] {
+				new AddBook()
+		};
 	}
 	
 	@Override
