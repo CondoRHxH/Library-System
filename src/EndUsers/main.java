@@ -21,10 +21,13 @@ public class main {
 			switch(action) {
 			case 1:
 				Login();
+				break;
 			case 2:
 				NewUser();
+				break;
 			case 0:
 				System.exit(0);
+				break;
 			default : System.out.print("Dkhol chi 9lwa mgada :");
 			}
 		} while(action!=0);
