@@ -2,6 +2,21 @@ package EndUsers;
 
 
 public class normalUser extends User{
+	
+	public normalUser(String name) {
+		super(name);
+		this.operations = new IOOperation[] {
+				new ViewBooks(),
+				new Search(),
+				new PlaceOrder(),
+				new BorrowBook(),
+				new CalculateFine(),
+				new ReturnBook(),
+				new Exit()
+		};
+	}
+	
+	
 	public normalUser(String name, String email, String pass) {
 		super(name,email,pass);
 		this.name = name;

@@ -7,9 +7,10 @@ public abstract class User {
 	protected String pass;
 	protected IOOperation[] operations;
 	
-	public User() {
+	public User(String name2) {
 		
 	}
+	
 	
 	public User(String name, String email, String pass) {
 		this.name = name;
