@@ -58,7 +58,7 @@ public class main {
 			user = new normalUser(name,email,pass);
 		}
 		database.AddUser(user);
-		user.menu();
+		user.menu(database, user);
 	}
 
 	private static void Login() {
@@ -73,7 +73,7 @@ public class main {
 		int n = database.login(email,pass);
 		if(n !=-1) {
 			User user = database.getUser(n);
-			user.menu();
+			user.menu(database ,user);
 			System.out.print("Created"+user.getName());
 		}	else {
 			System.out.print("doens tnot exxist");

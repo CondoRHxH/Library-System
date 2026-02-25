@@ -29,7 +29,7 @@ public abstract class User {
 		return pass;
 	}
 	
-	abstract public void menu();
+	abstract public void menu(database database, User user);
 	
 }
 
