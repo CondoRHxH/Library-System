@@ -24,5 +24,12 @@ public class Book{
 		this.brwcopies = brwcopies;
 	}
 	
-	
+	public String toString() {
+		String text = "The name " + name+ " The Author " +author+" The publisher : " +publisher+" The adress : "+adress+ " the status : "+status+" The QTY : "+
+				String.valueOf(qty)+ " The Price " +String.valueOf(price)+ "The Copies borrowed " +String.valueOf(brwcopies);
+		return text;
+	}
+	public String getName() {
+		return name;
+	}
 }
