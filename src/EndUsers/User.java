@@ -29,6 +29,8 @@ public abstract class User {
 		return pass;
 	}
 	
+	abstract void getString();
+	
 	abstract public void menu(database database, User user);
 	
 }

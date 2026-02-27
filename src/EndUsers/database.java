@@ -1,6 +1,9 @@
 package EndUsers;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import com.sun.tools.javac.Main;
@@ -12,16 +15,25 @@ public class database {
 	private ArrayList<Book>books = new ArrayList<Book>();
 	private ArrayList<String>booknames = new ArrayList<String>();
 	
-	private File usersfile = new File(Main.class.getClassLoader().getResource("Users").toExternalForm());
-	private File booksfile = new File(Main.class.getClassLoader().getResource("Books").toExternalForm());
+	private File usersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Users");
+	private File booksfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Books");
+	private File folder = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data");
 	
 	public database() {
+		if(!folder.exists()) {
+			folder.mkdirs();
+		}
 		if(!usersfile.exists()) {
-			usersfile.mkdirs();
-		}
+			try {
+				usersfile.createNewFile();
+				}catch (Exception e) {}
+			}
 		if(!booksfile.exists()) {
-			booksfile.mkdirs();
-		}
+			try {
+				booksfile.createNewFile();
+				}catch (Exception e) {}
+			}
+		getUsers();
 	}
 	
 	public void AddUser(User u) {       // Same as above
@@ -47,4 +59,49 @@ public class database {
 		books.add(book);
 		booknames.add(book.getName());
 	}
+	
+	
+	private void getUsers() {
+		String text1="";
+		try {
+			BufferedReader br1 = new BufferedReader(new FileReader(usersfile));
+			String s1;
+			while((s1 = br1.readLine())!= null) {
+				text1 = text1 + s1;
+			}
+			br1.close();
+		} catch(Exception e ) {
+			System.err.println(e.toString());
+		}
+		if(!text1.matches("") || !text1.isEmpty()) {
+			String[] a1 = text1.split("<NewUser/>");
+			for(String s : a1) {
+				String[] a2 = s.split("<N/>");
+				if(a2[3].matches("Admin")) {
+					User user = new admin(a2[0],a2[1],a2[2]);
+					users.add(user);
+					Usernames.add(user.getName());
+				} else {
+					User user = new admin(a2[0],a2[1],a2[2]);
+					users.add(user);
+					Usernames.add(user.getName());
+				}
+			}
+		}
+	}
+	private void saveUsers() {
+		String text1="";
+		for(User user : users) {
+			text1 = text1+user.toString()+"<NewUser/>\n";
+		}
+		try {
+			PrintWriter pw = new PrintWriter(usersfile);
+			pw.print(text1);
+			pw.close();
+			System.out.print("Data Saved");
+		} catch(Exception e) {
+			System.err.println(e.toString());
+		}
+	}
+	
 }

@@ -47,6 +47,12 @@ public class admin extends User{
 		
 		sc.close();
 	}
+
+	@Override
+	void getString() {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 
