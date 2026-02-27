@@ -39,6 +39,7 @@ public class database {
 	public void AddUser(User u) {       // Same as above
 		users.add(u);
 		Usernames.add(u.getName());
+		saveUsers();
 	}
 	
 	public int login(String email, String password) {
