@@ -105,4 +105,18 @@ public class database {
 		}
 	}
 	
+	private void saveBooks() {
+		String text1="";
+		for(Book book: books) {
+			text1 = text1+book.toString()+"<NewBook/>\n";
+		}
+		try {
+			PrintWriter pw = new PrintWriter(booksfile);
+			pw.print(text1);
+			pw.close();
+			System.out.print("Data Saved");
+		} catch(Exception e) {
+			System.err.println(e.toString());
+		}
+	}
 }
