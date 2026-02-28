@@ -36,4 +36,40 @@ public class Book{
 		String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+adress+"</N>"+String.valueOf(qty)+"</N>"+String.valueOf(price)+"<N/>"+String.valueOf(brwcopies);
 		return text;
 	}
+	
+
+	void setBrwcopies(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setPrice(double double1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setQty(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setAdress(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setPublisher(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setAuthor(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	void setName(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }
