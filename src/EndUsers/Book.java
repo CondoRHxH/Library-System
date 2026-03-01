@@ -39,35 +39,35 @@ public class Book{
 	
 
 	void setBrwcopies(int int1) {
-		this.brwcopies = brwcopies;
+		this.brwcopies = int1;
 		
 	}
 
 	void setPrice(double double1) {
-		this.price = price;
+		this.price = double1;
 	}
 
 	void setQty(int int1) {
-		this.qty = qty;		
+		this.qty = int1;		
 	}
 
 	void setAdress(String string) {
-		this.adress = adress;
+		this.adress = string;
 		
 	}
 
 	void setPublisher(String string) {
-		this.publisher = publisher;
+		this.publisher = string;
 		
 	}
 
 	void setAuthor(String string) {
-		this.author =author;
+		this.author =string;
 		
 	}
 
 	void setName(String string) {
-		this.name = name;
+		this.name = string;
 		
 	}
 }

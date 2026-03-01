@@ -13,6 +13,7 @@ public class AddBook implements IOOperation {
 		System.out.println("Enter The Book Name : ");
 		book.setName(s.nextLine());
 		
+		
 		System.out.println("Enter The Book Author : ");
 		book.setAuthor(s.nextLine());
 		
