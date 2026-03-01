@@ -39,37 +39,35 @@ public class Book{
 	
 
 	void setBrwcopies(int int1) {
-		// TODO Auto-generated method stub
+		this.brwcopies = brwcopies;
 		
 	}
 
 	void setPrice(double double1) {
-		// TODO Auto-generated method stub
-		
+		this.price = price;
 	}
 
 	void setQty(int int1) {
-		// TODO Auto-generated method stub
-		
+		this.qty = qty;		
 	}
 
 	void setAdress(String string) {
-		// TODO Auto-generated method stub
+		this.adress = adress;
 		
 	}
 
 	void setPublisher(String string) {
-		// TODO Auto-generated method stub
+		this.publisher = publisher;
 		
 	}
 
 	void setAuthor(String string) {
-		// TODO Auto-generated method stub
+		this.author =author;
 		
 	}
 
 	void setName(String string) {
-		// TODO Auto-generated method stub
+		this.name = name;
 		
 	}
 }

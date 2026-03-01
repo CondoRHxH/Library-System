@@ -20,10 +20,10 @@ public class admin extends User{
 
 	public admin(String name, String email, String pass) {
 		super(name,email,pass);
-		this.operations = new IOOperation[] {
-				new AddBook(),   // Implemting from the AddBook 
+		this.operations = new IOOperation[] {   // Implemting from the AddBook 
 				new ViewBooks(),
 				new DeleteAllData(),
+				new AddBook(),    // Order plays a role
 				new DeleteBook(),
 				new Exit(),
 				new Search(),
@@ -33,19 +33,29 @@ public class admin extends User{
 	
 	@Override
 	public void menu(database database, User user) {
-		System.out.print("/1. View Books");
-		System.out.print("/2. Delete Books");
-		System.out.print("/3. Add Books");
-		System.out.print("/4. Search");
-		System.out.print("/5. Delete all data");
-		System.out.print("/6. View Orders");
-		System.out.print("/7. Exit");
-		
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		this.operations[n-1].oper(database, user);
-		
-		sc.close();
+
+	    Scanner sc = main.sc;  // use same scanner
+	    int n;
+
+	    do {
+
+	        System.out.println("\n/1. View Books");
+	        System.out.println("/2. Delete Books");
+	        System.out.println("/3. Add Books");
+	        System.out.println("/4. Search");
+	        System.out.println("/5. Delete all data");
+	        System.out.println("/6. View Orders");
+	        System.out.println("/7. Exit");
+
+	        n = Integer.parseInt(sc.nextLine());
+
+	        if (n >= 1 && n <= 7) {
+	            this.operations[n - 1].oper(database, user);
+	        } else {
+	            System.out.println("Invalid choice");
+	        }
+
+	    } while (n != 7);
 	}
 
 	@Override

@@ -46,7 +46,6 @@ public class normalUser extends User{
 		int n = sc.nextInt();
 		this.operations[n-1].oper(database, user);
 		
-		sc.close();
 	}
 	
 		public String toString() {
