@@ -78,16 +78,19 @@ public class database {
 		if(!text1.matches("") || !text1.isEmpty()) {
 			String[] a1 = text1.split("<NewUser/>");
 			for(String s : a1) {
-				String[] a2 = s.split("<N/>");
-				if(a2[3].matches("Admin")) {
-					User user = new admin(a2[0],a2[1],a2[2]);
-					users.add(user);
-					Usernames.add(user.getName());
-				} else {
-					User user = new admin(a2[0],a2[1],a2[2]);
-					users.add(user);
-					Usernames.add(user.getName());
-				}
+			    String[] a2 = s.split("<N/>");
+
+			    if(a2.length < 4) continue;   // 🔥 PROTECTION
+
+			    if(a2[3].matches("Admin")) {
+			        User user = new admin(a2[0],a2[1],a2[2]);
+			        users.add(user);
+			        Usernames.add(user.getName());
+			    } else {
+			        User user = new admin(a2[0],a2[1],a2[2]);
+			        users.add(user);
+			        Usernames.add(user.getName());
+			    }
 			}
 		}
 	}
