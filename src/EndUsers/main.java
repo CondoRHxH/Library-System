@@ -17,7 +17,7 @@ public class main {
             System.out.println("Welcome to the app, Please select an action : /1.Login   /2.New User   /3.Exit");
 
             System.out.print("Write down the type : ");
-            action = Integer.parseInt(sc.nextLine());  // FIXED
+            action = Integer.parseInt(sc.nextLine());
 
             switch (action) {
                 case 1:
