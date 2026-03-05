@@ -30,7 +30,7 @@ public class main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid choice Please change");
             }
 
         } while (true);
