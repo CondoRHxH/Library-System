@@ -87,7 +87,7 @@ public class database {
 			        users.add(user);
 			        Usernames.add(user.getName());
 			    } else {
-			        User user = new admin(a2[0],a2[1],a2[2]);
+			        User user = new normalUser(a2[0],a2[1],a2[2]);
 			        users.add(user);
 			        Usernames.add(user.getName());
 			    }
