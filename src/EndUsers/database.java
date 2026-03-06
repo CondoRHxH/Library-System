@@ -34,6 +34,7 @@ public class database {
 				}catch (Exception e) {}
 			}
 		getUsers();
+		getBooks();
 	}
 	
 	public void AddUser(User u) {       // Same as above
@@ -157,4 +158,7 @@ public class database {
 		book.setBrwcopies(Integer.parseInt(a[6]));
 		return book;
 	}
+	
+	public ArrayList<Book> getAllBooks() {
+		return books;}
 }

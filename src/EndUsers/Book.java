@@ -70,4 +70,34 @@ public class Book{
 		this.name = string;
 		
 	}
+
+	public String getPublisher() {
+		// TODO Auto-generated method stub
+		return publisher;
+	}
+
+	public String getAdress() {
+		// TODO Auto-generated method stub
+		return adress;
+	}
+
+	public String getStatus() {
+		// TODO Auto-generated method stub
+		return status;
+	}
+
+	public int getQty() {
+		// TODO Auto-generated method stub
+		return qty;
+	}
+
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return price;
+	}
+
+	public int getBrwcopies() {
+		// TODO Auto-generated method stub
+		return brwcopies;
+	}
 }
