@@ -140,23 +140,34 @@ public class database {
 			String[] a1 = text1.split("<NewBook/>");
 			for(String s : a1) {
 				Book book = parseBook(s);
-				books.add(book);
-				booknames.add(book.getName());
+
+				if(book != null){
+				    books.add(book);
+				    booknames.add(book.getName());
+				}
 			}
 			
 		}
 	}
 	public Book parseBook(String s) {
-		String[] a = s.split("<N/>");
-		Book book = new Book();
-		book.setName(a[0]);
-		book.setAuthor(a[1]);
-		book.setPublisher(a[2]);
-		book.setAdress(a[3]);
-		book.setQty(Integer.parseInt(a[4]));
-		book.setPrice(Double.parseDouble(a[5]));
-		book.setBrwcopies(Integer.parseInt(a[6]));
-		return book;
+
+	    String[] a = s.split("<N/>");
+
+	    if(a.length < 7) {
+	        System.out.println("Invalid book data: " + s);
+	        return null;
+	    }
+
+	    Book book = new Book();
+	    book.setName(a[0]);
+	    book.setAuthor(a[1]);
+	    book.setPublisher(a[2]);
+	    book.setAdress(a[3]);
+	    book.setQty(Integer.parseInt(a[4]));
+	    book.setPrice(Double.parseDouble(a[5]));
+	    book.setBrwcopies(Integer.parseInt(a[6]));
+
+	    return book;
 	}
 	
 	public ArrayList<Book> getAllBooks() {
