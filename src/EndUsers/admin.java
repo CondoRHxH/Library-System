@@ -8,9 +8,9 @@ public class admin extends User{
 	public admin(String name) {
 		super(name);
 		this.operations = new IOOperation[] {
-				new AddBook(),   // Implemting from the AddBook 
 				new ViewBooks(),
 				new DeleteAllData(),
+				new AddBook(),   // Implemting from the AddBook 
 				new DeleteBook(),
 				new Exit(),
 				new Search(),
@@ -50,8 +50,34 @@ public class admin extends User{
 	        n = Integer.parseInt(sc.nextLine());
 
 	        if (n >= 1 && n <= 7) {
-	            this.operations[n - 1].oper(database, user);
-	        } else {
+	            IOOperation op;
+	            switch(n) {
+	                case 3: // Add Book
+	                    op = new AddBook(); // new instance every time
+	                    break;
+	                case 1:
+	                    op = new ViewBooks();
+	                    break;
+	                case 2:
+	                    op = new DeleteBook();
+	                    break;
+	                case 4:
+	                    op = new Search();
+	                    break;
+	                case 5:
+	                    op = new DeleteAllData();
+	                    break;
+	                case 6:
+	                    op = new ViewOrders();
+	                    break;
+	                case 7:
+	                    op = new Exit();
+	                    break;
+	                default:
+	                    op = null;
+	            }
+	            if(op != null) op.oper(database, user);
+	        }else {
 	            System.out.println("Invalid choice");
 	        }
 
@@ -60,7 +86,7 @@ public class admin extends User{
 
 	@Override
 	public String toString() {
-		return name+"<N/>"+email+"<N/>"+pass+"<N/>"+"admin";
+		return name+"<N/>"+email+"<N/>"+pass+"<N/>"+"Admin";
 	}
 
 	@Override

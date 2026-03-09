@@ -34,7 +34,7 @@ public class AddBook implements IOOperation {
 		
 		database.AddBook(book);
 		System.out.print("Book Added Succefully");
-		user.menu(database, user);
+		
 	}
 
 }

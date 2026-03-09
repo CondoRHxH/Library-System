@@ -33,7 +33,7 @@ public class Book{
 		return name;
 	}
 	public String toString2() {
-		String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+adress+"</N>"+String.valueOf(qty)+"</N>"+String.valueOf(price)+"<N/>"+String.valueOf(brwcopies);
+		String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+adress+"<N/>"+String.valueOf(qty)+"<N/>"+String.valueOf(price)+"<N/>"+String.valueOf(brwcopies);
 		return text;
 	}
 	
