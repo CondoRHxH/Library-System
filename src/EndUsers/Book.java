@@ -75,6 +75,10 @@ public class Book{
 		// TODO Auto-generated method stub
 		return publisher;
 	}
+	public String getAuthor() {
+		// TODO Auto-generated method stub
+		return author;
+	}
 
 	public String getAdress() {
 		// TODO Auto-generated method stub
