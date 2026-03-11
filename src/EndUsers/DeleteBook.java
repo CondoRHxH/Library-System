@@ -18,7 +18,7 @@ public class DeleteBook implements IOOperation{
 		} else {
 			System.out.println("Book not found");
 		}
-		s.close();
+		
 		user.menu(database,user);
 	}
 
