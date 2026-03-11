@@ -183,6 +183,10 @@ public class database {
 		return i;
 	}
 	
+	public Book getBook(int i) {
+		return books.get(i);
+	}
+	
 	public void deleteBook(int i) {
 		books.remove(i);
 		booknames.remove(i);
