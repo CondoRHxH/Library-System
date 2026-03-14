@@ -14,9 +14,11 @@ public class database {
 	private ArrayList<String>Usernames = new ArrayList<String>();
 	private ArrayList<Book>books = new ArrayList<Book>();
 	private ArrayList<String>booknames = new ArrayList<String>();
+	private ArrayList<Borrowing> borrowings = new ArrayList<Borrowing>();
 	
 	private File usersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Users");
 	private File booksfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Books");
+	private File borrowingsfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Borrowings");
 	private File folder = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data");
 	
 	public database() {
@@ -31,6 +33,11 @@ public class database {
 		if(!booksfile.exists()) {
 			try {
 				booksfile.createNewFile();
+				}catch (Exception e) {}
+			}
+		if(!borrowingsfile.exists()) {
+			try {
+				borrowingsfile.createNewFile();
 				}catch (Exception e) {}
 			}
 		getUsers();
@@ -191,4 +198,32 @@ public class database {
 		books.remove(i);
 		booknames.remove(i);
 	}
+	
+	private void saveBorrowings() {
+		String text1 = "";
+		for(Borrowing borrowing :borrowings) {
+			text1 = text1 + borrowing.toString2()+"<NewBorrowing/>\n";		
+		} try {
+			PrintWriter pw = new PrintWriter(borrowingsfile);
+			pw.print(text1);
+			pw.close();
+		} catch (Exception e) {
+			System.err.println(e.toString());
+		}
+	}
+	private void getBorrowings() {
+		String text1 = "";
+		
+		try {
+			BufferedReader br1 = new BufferedReader(new FileReader(borrowingsfile));
+			String s1;
+			while((s1 = br1.readLine()) !=null) {
+				text1 = text1 + s1;
+			}
+			br1.close();
+		} catch (Exception e){
+			System.err.println(e.toString());
+		}
+	}
+	
 }
