@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.sun.tools.javac.Main;
@@ -42,6 +44,7 @@ public class database {
 			}
 		getUsers();
 		getBooks();
+		getBorrowings();
 	}
 	
 	public void AddUser(User u) {       // Same as above
@@ -224,6 +227,29 @@ public class database {
 		} catch (Exception e){
 			System.err.println(e.toString());
 		}
+		if(!text1.matches("")|| !text1.isEmpty()) {
+			String[] a1 = text1.split("<NewBorrowing>");
+			for(String s : a1) {
+				Borrowing borrowing = parseBorrowing(s);
+				borrowings.add(borrowing);
+			}
+		}
 	}
+//	private Borrowing parseBorrowing(String s) {
+//		String[] a = s.split("<N/>");
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		LocalDate start = LocalDate.parse(a[0],formatter);
+//		LocalDate finish = LocalDate.parse(a[1],formatter);
+//		Book book = getBook(getBook(a[3]));
+//		//User user = getUserByName(a[4]);
+//		//Borrowing brw = new Borrowing(start, finish, book, user);
+//		return brw;
+//	}
 	
+	public void borrowBook(Borrowing brw, Book book, int bookindex) {
+		borrowings.add(brw);
+		books.set(bookindex, book);
+		saveBorrowings();
+		saveBooks();
+	}
 }
