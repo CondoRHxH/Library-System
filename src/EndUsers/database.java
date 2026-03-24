@@ -252,4 +252,8 @@ public class database {
 		saveBorrowings();
 		saveBooks();
 	}
+	
+	public ArrayList<Borrowing> getBrws(){
+		return borrowings;
+	}
 }
