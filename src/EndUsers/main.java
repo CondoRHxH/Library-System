@@ -11,29 +11,16 @@ public class main {
 
         database = new database();
 
-        int action;
-
-        do {
+        int num;
             System.out.println("Welcome to the app, Please select an action : /1.Login   /2.New User   /3.Exit");
 
             System.out.print("Write down the type : ");
-            action = Integer.parseInt(sc.nextLine());
-
-            switch (action) {
-                case 1:
-                    Login();
-                    break;
-                case 2:
-                    NewUser();
-                    break;
-                case 3:
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid choice Please change");
+            num = Integer.parseInt(sc.nextLine());
+            switch (num) {
+                case 1:Login();break;
+                case 2:NewUser();break;
+            
             }
-
-        } while (true);
     }
 
     private static void NewUser() {

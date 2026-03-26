@@ -256,4 +256,11 @@ public class database {
 	public ArrayList<Borrowing> getBrws(){
 		return borrowings;
 	}
+	
+	public void returnBook(Borrowing b, Book book, int bookindex) {
+		borrowings.remove(b);
+		books.set(bookindex, book);
+		saveBorrowings();
+		saveBooks();
+	}
 }
