@@ -16,6 +16,7 @@ public class database {
 	private ArrayList<String>Usernames = new ArrayList<String>();
 	private ArrayList<Book>books = new ArrayList<Book>();
 	private ArrayList<String>booknames = new ArrayList<String>();
+	private ArrayList<Order>orders= new ArrayList<Order>();
 	private ArrayList<Borrowing> borrowings = new ArrayList<Borrowing>();
 	
 	private File usersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Users");
@@ -263,4 +264,18 @@ public class database {
 		saveBorrowings();
 		saveBooks();
 	}
+	
+	public void deleteAllData() {
+		if(usersfile.exists()) {
+			try {
+				usersfile.delete();
+				}catch (Exception e) {}
+			}
+		if(booksfile.exists()) {
+			try {
+				booksfile.delete();
+				
+				}catch (Exception e) {}
+			}
+}
 }
