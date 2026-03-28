@@ -48,4 +48,8 @@ public class Order {
 				"Price: "+String.valueOf(price)+"\n"+
 				"Quantity : "+String.valueOf(qty)+"\n";
 	}
+	
+	public String toString2() {
+		return book.getName()+"<N/>"+user.getName()+"<N/>"+String.valueOf(price)+"<N/>"+String.valueOf(qty);
+	}
 }

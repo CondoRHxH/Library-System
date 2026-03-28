@@ -21,6 +21,7 @@ public class database {
 	
 	private File usersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Users");
 	private File booksfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Books");
+	private File ordersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Orders");
 	private File borrowingsfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Borrowings");
 	private File folder = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data");
 	
@@ -41,6 +42,11 @@ public class database {
 		if(!borrowingsfile.exists()) {
 			try {
 				borrowingsfile.createNewFile();
+				}catch (Exception e) {}
+			}
+		if(!ordersfile.exists()) {
+			try {
+				ordersfile.createNewFile();
 				}catch (Exception e) {}
 			}
 		getUsers();
@@ -277,5 +283,27 @@ public class database {
 				
 				}catch (Exception e) {}
 			}
+		if(ordersfile.exists()) {
+			try {
+				ordersfile.delete();
+				}catch (Exception e) {}
+			}
 }
+	public void addOrder(Order order) {
+		
+	}
+	private void saveOrder() {
+		String text1="";
+		for(Order order: orders) {
+			text1 = text1+order.toString2()+"<NewOrder/>\n";
+		}
+		try {
+			PrintWriter pw = new PrintWriter(ordersfile);
+			pw.print(text1);
+			pw.close();
+			System.out.print("Data Saved");
+		} catch(Exception e) {
+			System.err.println(e.toString());
+		}
+	}
 }
