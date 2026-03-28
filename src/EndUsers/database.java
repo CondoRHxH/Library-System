@@ -306,4 +306,47 @@ public class database {
 			System.err.println(e.toString());
 		}
 	}
-}
+	
+	private void getOrders() {
+		String text1="";
+		try {
+			BufferedReader br1 = new BufferedReader(new FileReader(ordersfile));
+			String s1;
+			while((s1 = br1.readLine())!= null) {
+				text1 = text1 + s1;
+			}
+			br1.close();
+		} catch(Exception e ) {
+			System.err.println(e.toString());
+		}
+		if(!text1.matches("") || !text1.isEmpty()) {
+			String[] a1 = text1.split("<NewOrder/>");
+			//for(String s : a1) {
+				//Book book = parseBook(s);
+
+				//if(book != null){
+				  //  books.add(book);
+				    //booknames.add(book.getName());
+				//}
+			}
+			
+		}
+	
+	private User getUserByName(String name) {
+		User u = new normalUser("");
+		for(User user : users) {
+			if(user.getName().matches(name)) {
+				u = user;
+				break;
+			}
+		}
+		return u;
+	}
+	
+	private Order parseOrder(String s) {
+		String[] a = s.split("<N/>");
+		Order order = new Order(books.get(getBook(a[0])),getUserByName(a[1]),Double.parseDouble(a[2]),Integer.parseInt(a[3]));
+		return order;
+	}
+	
+	}
