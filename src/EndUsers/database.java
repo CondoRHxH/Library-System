@@ -52,6 +52,7 @@ public class database {
 		getUsers();
 		getBooks();
 		getBorrowings();
+		getOrders();
 	}
 	
 	public void AddUser(User u) {       // Same as above
@@ -321,13 +322,10 @@ public class database {
 		}
 		if(!text1.matches("") || !text1.isEmpty()) {
 			String[] a1 = text1.split("<NewOrder/>");
-			//for(String s : a1) {
-				//Book book = parseBook(s);
-
-				//if(book != null){
-				  //  books.add(book);
-				    //booknames.add(book.getName());
-				//}
+			for(String s : a1) {
+				Order order = parseOrder(s);
+				orders.add(order);
+			}
 			}
 			
 		}

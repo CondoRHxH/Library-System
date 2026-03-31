@@ -10,6 +10,10 @@ public class Order {
 	public Order(Book book, User user, double price, int qty) {
 	}
 
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Book getBook() {
 		return book;
 	}
