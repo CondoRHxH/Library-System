@@ -243,16 +243,16 @@ public class database {
 			}
 		}
 	}
-//	private Borrowing parseBorrowing(String s) {
-//		String[] a = s.split("<N/>");
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		LocalDate start = LocalDate.parse(a[0],formatter);
-//		LocalDate finish = LocalDate.parse(a[1],formatter);
-//		Book book = getBook(getBook(a[3]));
-//		//User user = getUserByName(a[4]);
-//		//Borrowing brw = new Borrowing(start, finish, book, user);
-//		return brw;
-//	}
+	private Borrowing parseBorrowing(String s) {
+		String[] a = s.split("<N/>");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate start = LocalDate.parse(a[0],formatter);
+		LocalDate finish = LocalDate.parse(a[1],formatter);
+		Book book = getBook(getBook(a[3]));
+		User user = getUserByName(a[4]);
+		Borrowing brw = new Borrowing(start, finish, book, user);
+		return brw;
+	}
 	
 	public void borrowBook(Borrowing brw, Book book, int bookindex) {
 		borrowings.add(brw);
