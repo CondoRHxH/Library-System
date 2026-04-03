@@ -290,10 +290,13 @@ public class database {
 				}catch (Exception e) {}
 			}
 }
-	public void addOrder(Order order) {
+	public void addOrder(Order order, Book book, int bookindex) {
+		orders.add(order);	
+		books.set(bookindex, book);
 		
+		saveOrders();
 	}
-	private void saveOrder() {
+	private void saveOrders() {
 		String text1="";
 		for(Order order: orders) {
 			text1 = text1+order.toString2()+"<NewOrder/>\n";
@@ -345,6 +348,10 @@ public class database {
 		String[] a = s.split("<N/>");
 		Order order = new Order(books.get(getBook(a[0])),getUserByName(a[1]),Double.parseDouble(a[2]),Integer.parseInt(a[3]));
 		return order;
+	}
+	
+	public ArrayList<Order> getAllOrders(){
+		return orders;
 	}
 	
 	}

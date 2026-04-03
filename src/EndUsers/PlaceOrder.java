@@ -17,15 +17,19 @@ public class PlaceOrder implements IOOperation{
 		if(i<=-1) {
 			System.out.print("Book doesn't exists");
 		} else {
+			Book book = database.getBook(i);
 			order.setBook(database.getBook(i));
 			order.setUser(user);
 			System.out.println("Enter Qty");
 			int qty = s.nextInt();
 			order.setQty(qty);
 			order.setPrice(book.getPrice()*qty);
-			database.addOrder(order);
+			int bookindex = database.getBook(book.getName());
+			book.setQty(book.getQty()-1);
+			database.addOrder(order, book, bookindex);
 			System.out.print("Order Placed Succefully");
 		}
+		user.menu(database, user);
 	}
 
 }
