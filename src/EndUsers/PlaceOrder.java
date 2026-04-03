@@ -17,7 +17,7 @@ public class PlaceOrder implements IOOperation{
 		if(i<=-1) {
 			System.out.print("Book doesn't exists");
 		} else {
-			Book book = database.getBook(i);
+			Book book = database.getBook(i); //chagn
 			order.setBook(database.getBook(i));
 			order.setUser(user);
 			System.out.println("Enter Qty");
