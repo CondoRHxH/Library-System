@@ -20,9 +20,8 @@ public class ViewOrders implements IOOperation{
 				if(order.getBook().getName().matches(bookname)) {
 					System.out.print(order.getBook().getName()+"\t\t"+order.getUser().getName()+"\t\t"+order.getQty()+"\t\t"+order.getPrice());
 				}
-				System.out.println();
 			}
-			
+			System.out.println();
 		} else {
 			System.out.print("Book doens't exists");
 		}
