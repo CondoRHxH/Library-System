@@ -10,14 +10,22 @@ public class CalculateFine implements IOOperation{
 		Scanner s = new Scanner(System.in);
 		String bookname = s.next();
 		
+		boolean g = true;
+		
 		for(Borrowing b : database.getBrws()) {
 			if(b.getBook().getName().matches(bookname) && b.getUser().getName().matches(user.getName())) {
-				if(b.getDaysdLeft()<0) {
-					System.out.println("You are late ! You have to pay"+Math.abs(b.getDaysdLeft() * 50)+"As Fine");
+		
+				if(b.getDaysdLeft()>0) {
+					System.out.println("You are late ! You have to pay "+Math.abs(b.getDaysdLeft() * 50)+" Dh As Fine");
 				} else {
 					System.out.print("You Don't have to pay");
 				}
+				g = false;
+				break;
 			}
+		}
+		if(g) {
+			System.out.print("You didn't borrow this book");
 		}
 		user.menu(database, user);
 	}

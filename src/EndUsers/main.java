@@ -28,6 +28,10 @@ public class main {
         System.out.println("Enter Your name");
         String name = sc.nextLine();
 
+        if(database.userExists(name)) {
+        	System.out.println("There is already a user with this name");
+        	NewUser();
+        }
         System.out.println("Enter You email");
         String email = sc.nextLine();
 

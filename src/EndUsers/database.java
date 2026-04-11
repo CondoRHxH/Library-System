@@ -333,6 +333,17 @@ public class database {
 			
 		}
 	
+	public boolean userExists(String name) {
+		boolean f = false;
+		for(User user : users) {
+			if(user.getName().matches(name)) {
+				f = true;
+				break;
+			}
+		}
+		return f;
+	}
+	
 	private User getUserByName(String name) {
 		User u = new normalUser("");
 		for(User user : users) {
