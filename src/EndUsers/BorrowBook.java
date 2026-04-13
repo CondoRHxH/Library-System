@@ -13,7 +13,14 @@ public class BorrowBook implements IOOperation{
 		int i = database.getBook(bookname);
 		if(i>-1) {
 			Book book = database.getBook(i);
-			if(book.getBrwcopies()>1) {
+			boolean n = true;
+			for(Borrowing b :database.getBrws()) {
+				if(b.getBook().getName().matches(bookname) && b.getUser().getName().matches(user.getName())){
+					n = false;
+					System.out.print("You have borrowed this book before!");
+				}
+			}
+			if(book.getBrwcopies()>1 && n) {
 				Borrowing borrowing = new Borrowing(book, user);
 				book.setBrwcopies(book.getBrwcopies()-1);
 				database.borrowBook(borrowing, book, i);
