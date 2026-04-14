@@ -20,7 +20,7 @@ public class BorrowBook implements IOOperation{
 					System.out.print("You have borrowed this book before!");
 				}
 			}
-			if(book.getBrwcopies()>1 && n) {
+			if(book.getBrwcopies()>1) {
 				Borrowing borrowing = new Borrowing(book, user);
 				book.setBrwcopies(book.getBrwcopies()-1);
 				database.borrowBook(borrowing, book, i);
