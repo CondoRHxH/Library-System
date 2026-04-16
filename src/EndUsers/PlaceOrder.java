@@ -1,11 +1,35 @@
 package EndUsers;
 
+import java.util.Scanner;
+
 public class PlaceOrder implements IOOperation{
 
 	@Override
 	public void oper(database database, User user) {
-		// TODO Auto-generated method stub
 		
+		Order order = new Order();
+		System.out.println("Enter Book Name");
+		Scanner s = new Scanner(System.in);
+		String bookname = s.next();
+		
+		int i = database.getBook(bookname);
+		
+		if(i<=-1) {
+			System.out.print("Book doesn't exists");
+		} else {
+			Book book = database.getBook(i); //chagn
+			order.setBook(database.getBook(i));
+			order.setUser(user);
+			System.out.println("Enter Qty");
+			int qty = s.nextInt();
+			order.setQty(qty);
+			order.setPrice(book.getPrice()*qty);
+			int bookindex = database.getBook(book.getName());
+			book.setQty(book.getQty()-1);
+			database.addOrder(order, book, bookindex);
+			System.out.print("Order Placed Succefully");
+		}
+		user.menu(database, user);
 	}
 
 }
