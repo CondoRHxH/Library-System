@@ -17,16 +17,18 @@ public class BorrowBook implements IOOperation{
 			for(Borrowing b :database.getBrws()) {
 				if(b.getBook().getName().matches(bookname) && b.getUser().getName().matches(user.getName())){
 					n = false;
-					System.out.print("You have borrowed this book before!");
+					System.out.print("You have borrowed this book before!\n");
 				}
 			}
-			if(book.getBrwcopies()>1) {
-				Borrowing borrowing = new Borrowing(book, user);
-				book.setBrwcopies(book.getBrwcopies()-1);
-				database.borrowBook(borrowing, book, i);
-				System.out.println("You nust return the book Before 14 days from now\n" +"Expiry Date :"+borrowing.getFinish()+"\nEnjoy");
-			} else {
-				System.out.println("This Book isn't availble for Borrowing");
+			if(n) {
+				if(book.getBrwcopies()>1) {
+					Borrowing borrowing = new Borrowing(book, user);
+					book.setBrwcopies(book.getBrwcopies()-1);
+					database.borrowBook(borrowing, book, i);
+					System.out.println("You nust return the book Before 14 days from now\n" +"Expiry Date :"+borrowing.getFinish()+"\nEnjoy");
+				} else {
+					System.out.println("This Book isn't availble for Borrowing");
+				}
 			}
 		} else {
 			System.out.println("Bok doesn't exist");

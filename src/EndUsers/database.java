@@ -336,7 +336,7 @@ public class database {
 	public boolean userExists(String name) {
 		boolean f = false;
 		for(User user : users) {
-			if(user.getName().matches(name)) {
+			if(user.getName().toLowerCase().matches(name.toLowerCase())) {
 				f = true;
 				break;
 			}
