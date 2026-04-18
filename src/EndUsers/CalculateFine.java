@@ -11,7 +11,6 @@ public class CalculateFine implements IOOperation{
 		String bookname = s.next();
 		
 		boolean g = true;
-		
 		for(Borrowing b : database.getBrws()) {
 			if(b.getBook().getName().matches(bookname) && b.getUser().getName().matches(user.getName())) {
 		
