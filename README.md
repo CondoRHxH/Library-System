@@ -53,15 +53,6 @@ Library-System/
 - JDK 21 (or update `.classpath` to match your installed JDK)
 - Eclipse (recommended, since this is an Eclipse project) or any IDE/CLI that can compile a plain Java source tree
 
-### Before you run it
-`database.java` currently points to a **hardcoded local path**:
-
-```java
-private File usersfile = new File("C:\\Users\\HP ProBook\\eclipse-workspace\\Library_System\\data\\Users");
-```
-
-Update the four file paths in `database.java` (`usersfile`, `booksfile`, `ordersfile`, `borrowingsfile`, `folder`) to a valid location on your machine before running otherwise the app won't find/create its data files correctly on a different computer.
-
 ### Run it
 
 **Option 1 : Eclipse**
